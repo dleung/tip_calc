@@ -1,3 +1,9 @@
 AngularRailsDemo::Application.routes.draw do
-  root :to => 'home#index'
+  namespace :api do
+    resources :tasks
+  end
+
+  match '/' => 'home#index'
+  match '/tasks' => 'home#index'
+  match '/tasks/*page' => 'home#index'
 end
