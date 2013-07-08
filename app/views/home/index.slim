@@ -1,1 +1,10 @@
-div#wrapper(ui-view="")
+div(ui-view='menu')
+ul
+  li(ng-repeat="task in tasks")
+    span Title:  {{task.title}}
+    br
+    span Description:  {{task.description}}
+    a(href="/tasks/{{task.id}}/edit") Ubah
+    a(href="" ng-click="destroy(task.id)") Hapus
+
+a(href="tasks/new") Add New Task

@@ -1,1 +1,1 @@
-@app = angular.module("app", ["ui.compat"])
+@app = angular.module("app", ["ui.compat", "ui.state"])

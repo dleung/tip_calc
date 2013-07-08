@@ -14,7 +14,7 @@ app.config ($stateProvider, $urlRouterProvider) ->
       views:
         "":
           controller: "ApplicationController"
-          templateUrl: "/assets/layouts/default.html.erb"
+          templateUrl: "/tasks_assets/layout.html"
 
     # Tasks
     .state "tasks",
@@ -23,15 +23,18 @@ app.config ($stateProvider, $urlRouterProvider) ->
       views:
         "":
           controller: "TasksController"
-          templateUrl: "/assets/tasks/index.html.erb"
- 
+          templateUrl: "/tasks_assets/index.html"
+        "menu":
+          controller: "ApplicationController"
+          templateUrl: "/tasks_assets/menu.html"
+
     .state "new",
       parent: "tasks"
       url: "/new"
       views:
         "@default":
           controller: "TasksController"
-          templateUrl: "/assets/tasks/new.html.erb"
+          templateUrl: "/tasks_assets/new.html"
  
     .state "edit",
       parent: "tasks"
@@ -39,4 +42,4 @@ app.config ($stateProvider, $urlRouterProvider) ->
       views:
         "@default":
           controller: "TasksController"
-          templateUrl: "/assets/tasks/edit.html.erb"
+          templateUrl: "/tasks_assets/edit.html"
