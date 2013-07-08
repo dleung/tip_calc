@@ -1,11 +1,5 @@
 class HomeController < ApplicationController
-	layout false
-
-  def template
-  	render text: '', layout: 'layouts/application'
-  end
-
-  def form
-  	render '_form'
+  def index
+  	redirect_to '/tasks'
   end
 end

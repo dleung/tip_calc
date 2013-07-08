@@ -3,14 +3,20 @@ AngularRailsDemo::Application.routes.draw do
     resources :tasks
   end
 
-  get '/' => 'home#template'
-  get '/tasks' => 'home#template'
-  get '/tasks/new' => 'home#template'
-  get '/tasks/:id/edit' => 'home#template'
-  get '/tasks_assets/menu' => 'home#menu'
-  get '/tasks_assets/index' => 'home#index'
-  get '/tasks_assets/new' => 'home#new'
-  get '/tasks_assets/edit' => 'home#edit'
-  get '/tasks_assets/_form' => 'home#form'
-  get '/tasks_assets/layout' => 'home#layout'
+  scope 'tasks' do
+    get ''         => 'tasks#template'
+    get 'new'      => 'tasks#template'
+    get ':id/edit' => 'tasks#template'
+  end
+
+  scope '/tasks_assets' do
+    get 'menu'   => 'tasks#menu'
+    get 'index'  => 'tasks#index'
+    get 'new'    => 'tasks#new'
+    get 'edit'   => 'tasks#edit'
+    get '_form'  => 'tasks#form'
+    get 'layout' => 'tasks#layout'
+  end
+
+  root to: 'home#index'
 end
