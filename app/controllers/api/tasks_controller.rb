@@ -8,14 +8,21 @@ class Api::TasksController < Api::BaseController
   end
 
   def create
-    respond_with :api, Task.create(params[:task])
+    respond_with :api, Task.create(task_params)
   end
  
   def update
-    respond_with :api, Task.update(params[:id], params[:task])
+    respond_with :api, Task.update(params[:id], task_params)
   end
  
   def destroy
     respond_with :api, Task.destroy(params[:id])
+  end
+
+  private
+
+  # Rails 4 Strong Parameters
+  def task_params
+    params.require(:task).permit(:description, :title)
   end
 end
