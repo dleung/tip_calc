@@ -1,21 +1,14 @@
 AngularRailsDemo::Application.routes.draw do
-  namespace :api do
-    resources :tasks
+  scope 'checks' do
+    get ''         => 'checks#template'
+    get 'new'      => 'checks#template'
+    get ':id/edit' => 'checks#template'
   end
 
-  scope 'tasks' do
-    get ''         => 'tasks#template'
-    get 'new'      => 'tasks#template'
-    get ':id/edit' => 'tasks#template'
-  end
-
-  scope '/tasks_assets' do
-    get 'menu'   => 'tasks#menu'
-    get 'index'  => 'tasks#index'
-    get 'new'    => 'tasks#new'
-    get 'edit'   => 'tasks#edit'
-    get '_form'  => 'tasks#form'
-    get 'layout' => 'tasks#layout'
+  scope '/checks_assets' do
+    get 'layout'   => 'checks#layout'
+    get 'index'    => 'checks#index'
+    get 'menu'     => 'checks#menu'
   end
 
   root to: 'home#index'

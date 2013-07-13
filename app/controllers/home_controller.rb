@@ -1,5 +1,5 @@
 class HomeController < ApplicationController
   def index
-  	redirect_to '/tasks'
+  	redirect_to '/checks'
   end
 end

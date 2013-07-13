@@ -1,0 +1,40 @@
+div(ng-controller='TipCalcController')
+  form
+    fieldset
+      label
+        | Enter Check Total
+ 			field
+        input(ng-model='check.total')
+    fieldset
+      label
+        | Number of People
+      field
+        input(ng-model='check.number_of_people')
+    fieldset
+      label
+        | Gratuity
+      field
+        input(ng-model='check.gratuity')
+    fieldset
+      label
+        | Tax
+      field
+        input(ng-model='check.tax')
+  ul
+    li(ng-repeat='(index, person) in persons') 
+      input(ng-model='person.name')
+      input(type='checkbox' ng-model='person.locked')
+      | Raw Total {{person.raw_total | currency}}
+      | Grand Total {{person.total | currency}}
+      button(ng-click="add_item()") Add Item
+      input(ng-model='person.paid')
+      | {{person.change | currency}}
+      
+      ul
+        li(ng-repeat='(index, item) in person.items')
+          input(ng-model='item.cost')
+          button(ng-click="remove_item(index)") Remove Item
+    div
+      | Raw Total:  {{check.raw_total | currency}}
+      br
+      | Grand Total:  {{check.grand_total | currency}}

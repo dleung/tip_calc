@@ -1,11 +1,11 @@
-class TasksController < ApplicationController
+class ChecksController < ApplicationController
 	layout false
 
   def template
   	render text: '', layout: 'layouts/application'
   end
 
-  def form
-  	render '_form'
+  def item
+  	render 'home/_item', layout: false
   end
 end

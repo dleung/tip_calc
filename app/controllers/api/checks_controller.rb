@@ -1,4 +1,4 @@
-class Api::TasksController < Api::BaseController
+class Api::ChecksController < Api::BaseController
   def index
     respond_with :api, Task.all
   end

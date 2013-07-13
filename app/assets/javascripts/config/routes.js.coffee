@@ -14,32 +14,13 @@ app.config ($stateProvider, $urlRouterProvider) ->
       views:
         "":
           controller: "ApplicationController"
-          templateUrl: "/tasks_assets/layout.html"
+          templateUrl: "/checks_assets/layout.html"
 
-    # Tasks
-    .state "tasks",
+    # Checks
+    .state "checks",
       parent: "default"
-      url: "/tasks"
+      url: "/checks"
       views:
         "":
-          controller: "TasksController"
-          templateUrl: "/tasks_assets/index.html"
-        "menu":
-          controller: "ApplicationController"
-          templateUrl: "/tasks_assets/menu.html"
-
-    .state "new",
-      parent: "tasks"
-      url: "/new"
-      views:
-        "@default":
-          controller: "TasksController"
-          templateUrl: "/tasks_assets/new.html"
- 
-    .state "edit",
-      parent: "tasks"
-      url: "/:id/edit"
-      views:
-        "@default":
-          controller: "TasksController"
-          templateUrl: "/tasks_assets/edit.html"
+          controller: "TipCalcController"
+          templateUrl: "/checks_assets/index.html"
